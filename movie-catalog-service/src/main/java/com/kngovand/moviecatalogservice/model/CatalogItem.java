@@ -1,4 +1,4 @@
-package com.kngovand.moviecatalogservice.resources;
+package com.kngovand.moviecatalogservice.model;
 
 public class CatalogItem {
     private String name;
