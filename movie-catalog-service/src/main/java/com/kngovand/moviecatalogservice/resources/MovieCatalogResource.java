@@ -3,6 +3,7 @@ package com.kngovand.moviecatalogservice.resources;
 import com.kngovand.moviecatalogservice.model.Movie;
 import com.kngovand.moviecatalogservice.model.Rating;
 import com.kngovand.moviecatalogservice.model.CatalogItem;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +18,18 @@ import java.util.stream.Collectors;
 @RequestMapping("/catalog")
 public class MovieCatalogResource {
 
+    @Autowired
+    private RestTemplate restTemplate;
+
+    // Get all rated movie IDs
+    // For each movie ID, call movie info service and get details
+    // Return data
+
     @RequestMapping("/{userId}")
     public List<CatalogItem> getCatalog(@PathVariable("userId") String userId) {
-        RestTemplate restTemplate = new RestTemplate();
-        // Get all rated movie IDs
-        // For each movie ID, call movie info service and get details
-        // Return data
+
+        WebClient.Builder
+
         List<Rating> ratings = Arrays.asList(
                 new Rating("1233", 3),
                 new Rating("1234", 4)
@@ -33,6 +40,5 @@ public class MovieCatalogResource {
             return new CatalogItem(movie.getName(), "Test", rating.getRating());
         })
         .collect(Collectors.toList());
-
     }
 }

@@ -6,7 +6,7 @@ public class Movie {
     private String description;
 
     public Movie() {
-        
+
     }
 
     public Movie(String movieId, String name, String description) {
