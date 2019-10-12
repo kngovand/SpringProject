@@ -13,10 +13,18 @@ public class RatingsResource {
     public Rating getMovieRating(@PathVariable("movieId") String movieId) {
         return new Rating(movieId, 4);
     }
+
     @RequestMapping("/users/{userId}")
-    public UserRating getUserRatings(@PathVariable("userId") String userId) {
+    public UserRating getUserRating(@PathVariable("userId") String userId) {
         UserRating userRating = new UserRating();
         userRating.initialize(userId);
+        return userRating;
+    }
+    //test case
+    @RequestMapping("/users/test")
+    public UserRating getTestRating(String userId) {
+        UserRating userRating = new UserRating();
+        userRating.initializeTest(userId);
         return userRating;
     }
 }

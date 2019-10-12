@@ -1,4 +1,4 @@
-package com.kngovand.ratingsdataservice;
+package com.kngovand.moviecatalogservice.model;
 import java.util.Arrays;
 import java.util.List;
 
@@ -9,6 +9,8 @@ import java.util.List;
 public class UserRating {
     private String userId;
     private List<Rating> ratings;
+
+    public UserRating() {}
 
     public String getUserId() {
         return userId;
@@ -29,16 +31,8 @@ public class UserRating {
     public void initialize(String userId) {
         this.setUserId(userId);
         this.setRatings(Arrays.asList(
-                new Rating("movietest1", 5),
-                new Rating("movietest2", 3)
-        ));
-    }
-
-    public void initializeTest(String userId) {
-        this.setUserId("test");
-        this.setRatings(Arrays.asList(
-                new Rating("testrating1", 1),
-                new Rating("testrating2", 1)
+                new Rating("100", 5),
+                new Rating("200", 3)
         ));
     }
 }
